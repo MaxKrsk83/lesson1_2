@@ -60,13 +60,32 @@ public class HW2 {
         System.out.println("Максимальное значение массива: " + max);
 
         //#6
-        int arr5[] = {2, 2, 2, 1, 2, 2, 10, 1};
+        int[] arr5 = {2, 2, 2, 1, 2, 2, 10, 1};
         System.out.println("Массив для поиска места: " + Arrays.toString(arr5));
         if (checkBalance(arr5)){
             System.out.println("Есть место!");
         }else {
             System.out.println("Места нет.");
         }
+
+        //#7
+        int [] arr6 = {1,2,3,4,5,6};
+        int n = -1;
+        System.out.println("Массив до смещения: " + Arrays.toString(arr6) + " на n=" + n);
+        System.out.println("Результат: " + Arrays.toString(swap(arr6,n)));
+    }
+    public static int [] swap(int [] arr, int n){
+        int [] rez = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            int r = i + n;
+            if (r >= arr.length){
+                r = r - arr.length;
+            }else if (r < 0){
+                r = r + arr.length;
+            }
+            rez[r] = arr[i];
+        }
+        return rez;
     }
     public static boolean checkBalance(int [] arr){
         int sumLeft = 0;
